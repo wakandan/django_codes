@@ -1,0 +1,14 @@
+<html>
+  <body>
+  <h1>{{object.title}}</h1>
+	  <p>Published on: {{object.pub_date|date:"F j, Y" }}</p>
+	  {%if object.excerpt_html%}
+	    {{object.excerpt_html|safe}}
+	  {%endif%}
+	  <br>-----------------------------</br>
+	  {%if object.body_html%}
+	    {{object.body_html|safe}}
+	  {%endif%}
+	  <p><a href="/coltrane/">Back to full list</a></p>
+  </body>
+</html>

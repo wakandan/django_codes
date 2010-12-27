@@ -1,0 +1,32 @@
+<html>
+	<head>
+		<title>Search</title>
+	</head>
+	<body>
+	{% if keyword_results or results %}
+		<p>You searched for "{{ query }}".</p>
+		{% if keyword_results %}
+			<p> Recommended pages: </p>	
+			<ul>
+			{% for page in keyword_results%}
+				<li><a href="{{ page.get_absolute_url }} ">{{page.title}}</a></li>
+			{% endfor %}
+			</ul>
+		{% endif %}
+		{% if results %}	
+			<p> The results are listed below.</p>	
+			<ul>
+			{% for page in results %}
+				<li><a href="{{ page.get_absolute_url }}">{{ page.title }}</a></li>
+			{% endfor %}
+			</ul>
+		{% endif %}
+	{% else %}
+		{% if query %}
+			<p>No result found</p>
+		{% else %}
+			<p>Type a search query into the box above, and press "Submit" to search.</p>			
+		{% endif %}
+	{% endif %}
+	</body>
+</html>
